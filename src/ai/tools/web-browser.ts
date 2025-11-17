@@ -44,12 +44,12 @@ export const getPageContent = ai.defineTool(
       
       const data = await response.json();
 
-      if (!data.items || data.items.length === 0) {
+      if (!data.results || data.results.length === 0) {
         return "No relevant results found for your query.";
       }
       
-      const searchResults = data.items.map((item: any, idx: number) => (
-        `${idx + 1}. Title: ${item.title}\n   URL: ${item.link}\n   Snippet: ${item.snippet}`
+      const searchResults = data.results.map((item: any, idx: number) => (
+        `${idx + 1}. Title: ${item.title}\n   URL: ${item.href}\n   Snippet: ${item.content}`
       )).join('\n\n');
 
       return `Here are the top search results:\n${searchResults}`;
