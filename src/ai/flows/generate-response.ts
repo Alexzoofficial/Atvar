@@ -123,7 +123,7 @@ async function generateWithPollinations(input: GenerateResponseInput): Promise<G
     return { response: text };
   } catch (error) {
     console.error('Error generating response from Pollinations.ai:', error);
-    return { response: 'Sorry, I encountered an error. Please try again.' };
+    return generateResponseFlow(input);
   }
 }
 

@@ -22,16 +22,18 @@ const CodeBlock = ({ children }: { children: string }) => {
   };
 
   return (
-    <div className="bg-gray-900 rounded-md my-2">
+    <div className="bg-gray-900 rounded-md my-2 relative">
       <div className="flex items-center justify-between px-4 py-2 bg-gray-800 rounded-t-md">
         <span className="text-xs text-gray-400">code</span>
         <Button variant="ghost" size="icon" className="h-7 w-7" onClick={handleCopy}>
           {copied ? <Check className="size-4 text-primary" /> : <Copy className="size-4 text-gray-400" />}
         </Button>
       </div>
-      <pre className="p-4 text-sm text-white overflow-x-auto">
-        <code>{children}</code>
-      </pre>
+      <div className="overflow-x-auto">
+        <pre className="p-4 text-sm text-white">
+          <code>{children}</code>
+        </pre>
+      </div>
     </div>
   );
 };
@@ -265,7 +267,7 @@ export function ChatMessage({ id, role, content, attachments, onRegenerate, onAu
         
         <div 
           className={cn(
-            "p-3 rounded-2xl max-w-[85%]", 
+            "p-3 rounded-2xl w-full max-w-full md:max-w-[85%]",
             isUser 
               ? "bg-muted text-foreground rounded-br-none" 
               : "bg-transparent rounded-bl-none"
