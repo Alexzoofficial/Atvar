@@ -2,7 +2,17 @@
 import { getPageContentFn } from '../web-browser';
 
 describe('getPageContent', () => {
-  it('should fetch and format search results correctly', async () => {
+  const originalApiKey = process.env.ALEXZO_API_KEY;
+
+  beforeEach(() => {
+    process.env.ALEXZO_API_KEY = 'test-key';
+  });
+
+  afterEach(() => {
+    process.env.ALEXZO_API_KEY = originalApiKey;
+  });
+
+  it('should fetch and format search results correctly from Alexzo Search API', async () => {
     const mockResponse = {
       results: [
         { title: 'Test Title 1', url: 'https://example.com/1', content: 'Test Snippet 1' },
