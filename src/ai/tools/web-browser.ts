@@ -39,7 +39,7 @@ export async function getPageContentFn(input: { query: string }) {
     }
 
     const searchResults = data.results.slice(0, 5).map((item: any, idx: number) => (
-      `${idx + 1}. Title: ${item.title}\n   URL: ${item.url}\n   Snippet: ${item.content}`
+      `${idx + 1}. Title: ${item.title}\n   URL: ${item.href}\n   Snippet: ${item.content}`
     )).join('\n\n');
 
     return `Here are the top search results:\n${searchResults}`;

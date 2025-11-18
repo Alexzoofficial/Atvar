@@ -15,8 +15,8 @@ describe('getPageContent', () => {
   it('should fetch and format search results correctly from Alexzo Search API', async () => {
     const mockResponse = {
       results: [
-        { title: 'Test Title 1', url: 'https://example.com/1', content: 'Test Snippet 1' },
-        { title: 'Test Title 2', url: 'https://example.com/2', content: 'Test Snippet 2' },
+        { title: 'Test Title 1', href: 'https://example.com/1', content: 'Test Snippet 1' },
+        { title: 'Test Title 2', href: 'https://example.com/2', content: 'Test Snippet 2' },
       ],
     };
 
